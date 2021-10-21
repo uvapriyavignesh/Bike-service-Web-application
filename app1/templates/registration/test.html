@@ -1,0 +1,117 @@
+{%extends 'app1/dashboard.html'%}
+{% block content %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 20px;
+  background: dodgerblue;
+  color: white;
+
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+<script>
+    function copyTextValue(bf) {
+  var text1 = bf.checked ? document.getElementById("name1").value : '';
+  document.getElementById("name2").value = text1;
+
+}
+</script>
+</head>
+<body>
+
+
+
+<form method="post" style="max-width:500px;margin:auto">
+
+<h1>Book Service</h1>
+{%csrf_token%}
+  <div class="input-container">
+    <i class="fa fa-wrench icon"></i>
+    <input type="text" name="service" value={{ t }} style="text-transform: uppercase;" readonly>
+
+
+
+  </div>
+  <h1 id="name2"></h1>
+
+
+  <div class="input-container">
+    <i class="fa fa-motorcycle icon"></i>
+    <input class="input-field" type="text" placeholder="Veichile type" name="type">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-money icon"></i>
+    <input type="text" name="amount" value="{{sc.amount}} $" readonly>
+  </div>
+    <div class="input-container">
+        <i class="fa fa-credit-card-alt icon"></i>
+        <input class="input-field"  placeholder="Payment Method" name="pay" id="pays" list="pay" >
+            <datalist id="pay">
+        <option value="COD">
+        <option value="Online Payment">
+
+        </datalist>
+    </div>
+    <div class="input-container">
+    <i class="fa fa-clock-o icon"></i>
+    <input type="text" name="time" value="{{sc.duration}} hrs"  readonly>
+  </div>
+    <h4>Book your slot</h4>
+    <div class="input-container">
+
+    <i class="fa fa-book icon"></i>
+    <input class="input-field" type="date" placeholder="Book your Slot" name="slot">
+    </div>
+
+            <button type="submit" class="btn" >APPLY</button>
+
+  </div>
+
+
+
+</form>
+
+</body>
+{% endblock %}

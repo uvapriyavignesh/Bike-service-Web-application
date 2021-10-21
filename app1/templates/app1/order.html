@@ -1,0 +1,66 @@
+{%extends 'app1/dashboard.html'%}
+{% block content %}
+<style>
+    .line {
+    height: 3px;a
+    width: 100%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+#main {
+  border: 1px solid #000000;
+  display: flex;
+  flex-wrap: wrap;
+  align-content:center;
+}
+.center {
+  margin: auto;
+  width: 60%;
+
+}
+</style>
+<h1 style="margin: auto;width: 30%;">Welcome, {{user.username}}  </h1>
+
+{% for x in b %}
+ <body>
+
+     <!-- <h4>No messages are found ....:(</h4>-->
+
+
+      <div class="center" style="padding: 6px 10px 10px 10px; background-color: #f6f6f6;">
+        <div class="row">
+
+          <div class="col-sm-9">
+           <span class="glyphicon glyphicon-wrench " style="color: #71797E;font-size: 50px;"></span><h2>{{x.type_of_service}}</h2>
+            <br><div class="col-sm-1">
+
+            </div>
+          <h4>Vechile Type:{{x.vechile_type}}</h4><br>
+              <p>Paid Method:{{x.paid_method}}</p>
+
+          <h6>Booked Slot:{{x.booked_slot}}</h6>
+
+          <br>
+           </div>
+            <progress  value={{x.percentage_of_work_complete}} max="100"> {{x.percentage_of_work_complete}} </progress><h3>{{x.percentage_of_work_complete}}%</h3>
+            <p>Work Complete,{{ba}}</p>
+
+            <span class="glyphicon glyphicon-cog " style="color: #71797E;font-size: 50px;">
+
+
+        </div>
+
+          <div class="line"></div>
+      </div>
+
+{%endfor%}
+</body>
+
+{% endblock %}
+
+
+
+        <progress id="file" value={{x.percentage_of_work_complete}} max="100"> {{x.percentage_of_work_complete}} </progress>
+
+
+
