@@ -9,13 +9,6 @@ from .models import service as sc
 from .models import orderdetails as od
 
 
-
-
-
-
-
-
-
 def home(request):
     if request.method == 'POST':
         name=request.POST.get("name")
@@ -102,6 +95,11 @@ def bookingform(request,ser):
 
         a=od(name=request.user,email=current_user.email,type_of_service=service,paid_method=payment,vechile_type=type,order_placed_time=time,booked_slot=book_date,percentage_of_work_complete=0)
         a.save()
+        subject = 'successfully finished the bike service Booking '
+        message = f'Hi {request.user.username}, you are successfully booked { service } service for your bike on {book_date}'
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [str(request.user.email), ]
+        send_mail( subject, message, email_from, recipient_list )
         return redirect(("/dashboard/order"))
     context={"sc":a,"t":test}
 
