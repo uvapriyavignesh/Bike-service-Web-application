@@ -8,5 +8,8 @@ ex:
 next go to your accounts settings in gmail then turn on Less secure app access option.
 
 
+ADMIN pannel user,password=admin,admin
+
+
 
 
