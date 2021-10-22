@@ -1,8 +1,7 @@
 # Bike-service-Web-application-
 web application for online bike service booking
-
-at firt go to settings.py
-put your email id and password in required fields
+at first go to settings.py.
+Put your email id and password in required fields
 ex:
    EMAIL_HOST_USER = 'yourmailid'-----------------------replace your gmail id 
    EMAIL_HOST_PASSWORD = ' enter password'--------------replace your gmail id password
