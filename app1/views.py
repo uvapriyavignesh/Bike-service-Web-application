@@ -23,7 +23,7 @@ def home(request):
                             id=x.id
                             ts=od.objects.filter(id=id)
                             subject = 'successfully finished the bike service '
-                            message = f'Hi {x.name}, you booked { x.type_of_service} service for your bike{x.type} its completed .So It ready to Delivery'
+                            message = f'Hi {x.name}, you booked { x.type_of_service} service for your bike {x.vechile_type} its completed .So It ready to Delivery'
                             email_from = settings.EMAIL_HOST_USER
                             recipient_list = [str(x.email), ]
                             send_mail( subject, message, email_from, recipient_list )
@@ -96,7 +96,7 @@ def bookingform(request,ser):
         a=od(name=request.user,email=current_user.email,type_of_service=service,paid_method=payment,vechile_type=type,order_placed_time=time,booked_slot=book_date,percentage_of_work_complete=0)
         a.save()
         subject = 'successfully finished the bike service Booking '
-        message = f'Hi {request.user.username}, you are successfully booked { service } service for your bike{ type } on {book_date}'
+        message = f'Hi {request.user.username}, you are successfully booked { service } service for your bike { type } on {book_date}'
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [str(request.user.email), ]
         send_mail( subject, message, email_from, recipient_list )
